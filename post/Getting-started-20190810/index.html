@@ -57,14 +57,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="nvn">
-<meta property="og:url" content="https://vannghia17.github.io/index.html">
+  <meta name="description" content="These are generic build instructions. Take a look at the install pageif you are looking for a specific platform. Building from sourceGet the build dependenciesThere are a number of packages required f">
+<meta name="keywords" content="database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting started">
+<meta property="og:url" content="https://vannghia17.github.io/post/Getting-started-20190810/index.html">
 <meta property="og:site_name" content="nvn">
+<meta property="og:description" content="These are generic build instructions. Take a look at the install pageif you are looking for a specific platform. Building from sourceGet the build dependenciesThere are a number of packages required f">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T17:45:48.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nvn">
-  <link rel="canonical" href="https://vannghia17.github.io/">
+<meta name="twitter:title" content="Getting started">
+<meta name="twitter:description" content="These are generic build instructions. Take a look at the install pageif you are looking for a specific platform. Building from sourceGet the build dependenciesThere are a number of packages required f">
+  <link rel="canonical" href="https://vannghia17.github.io/post/Getting-started-20190810/">
 
 
 <script id="page.configurations">
@@ -73,7 +78,7 @@
   };
 </script>
 
-  <title>nvn</title>
+  <title>Getting started | nvn</title>
   
 
 
@@ -112,7 +117,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-  <div class="container sidebar-position-left page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -145,7 +150,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
       
     
 
@@ -190,8 +195,9 @@
 
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      
+
+  <div id="posts" class="posts-expand">
+    
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -212,10 +218,8 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/post/Getting-started-20190810/" class="post-title-link" itemprop="url">Getting started</a>
+          <h1 class="post-title" itemprop="name headline">Getting started
+
               
             
           </h1>
@@ -249,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>These are generic build instructions. Take a look at the <a href="/docs/install/">install page</a><br>if you are looking for a specific platform.</p>
+        <p>These are generic build instructions. Take a look at the <a href="/docs/install/">install page</a><br>if you are looking for a specific platform.</p>
 <h1 id="Building-from-source"><a href="#Building-from-source" class="headerlink" title="Building from source"></a>Building from source</h1><h2 id="Get-the-build-dependencies"><a href="#Get-the-build-dependencies" class="headerlink" title="Get the build dependencies"></a>Get the build dependencies</h2><p>There are a number of packages required for the build process. Most<br>should be available for your operating system’s repository. These packages are:</p>
 <ul>
 <li><a href="https://gcc.gnu.org/" target="_blank" rel="noopener">GCC (G++)</a> or <a href="http://clang.llvm.org/" target="_blank" rel="noopener">Clang</a></li>
@@ -263,111 +267,53 @@
 </ul>
 <p>On Ubuntu, you can install the build dependencies with apt-get, <a href="/docs/install/ubuntu/">following the instructions here</a>.</p>
 <p>The <code>./configure</code> script can install some of these dependencies if they are missing.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/post/Getting-started-20190810/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
+<a id="more"></a>
+
+<h2 id="Get-the-source-code"><a href="#Get-the-source-code" class="headerlink" title="Get the source code"></a>Get the source code</h2><p>Download and extract the archive:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.rethinkdb.com/dist/rethinkdb-&#123;&#123;site.version.full&#125;&#125;.tgz</span><br><span class="line">tar xf rethinkdb-&#123;&#123;site.version.full&#125;&#125;.tgz</span><br></pre></td></tr></table></figure>
+
+<h2 id="Build-the-server"><a href="#Build-the-server" class="headerlink" title="Build the server"></a>Build the server</h2><p>Kick off the build process:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> rethinkdb-&#123;&#123;site.version.full&#125;&#125;</span><br><span class="line">./configure --allow-fetch</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<h1 id="Building-from-git"><a href="#Building-from-git" class="headerlink" title="Building from git"></a>Building from git</h1><p>The git version of RethinkDB contains unreleased and unstable<br>changes. It is meant for developers and contributors.</p>
+<h2 id="Get-the-build-dependencies-1"><a href="#Get-the-build-dependencies-1" class="headerlink" title="Get the build dependencies"></a>Get the build dependencies</h2><p>In addition to the standard dependencies, building from git also<br>depends on <a href="http://nodejs.org/" target="_blank" rel="noopener">npm</a>.</p>
+<h2 id="Get-the-source-code-1"><a href="#Get-the-source-code-1" class="headerlink" title="Get the source code"></a>Get the source code</h2><p>Clone the development branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/rethinkdb/rethinkdb.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="Build-RethinkDB"><a href="#Build-RethinkDB" class="headerlink" title="Build RethinkDB"></a>Build RethinkDB</h2><p>Kick off the build process:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> rethinkdb</span><br><span class="line">./configure --allow-fetch</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>If you’re compiling on a multicore or multiprocessor machine, you may be able to use <code>make -j #</code> to speed up the build process, where ‘#’ is the total number of CPU cores. (On a 4-core machine, you can use <code>make -j 4</code>.) However, some older versions of <code>make</code> will produce a segmentation fault error when using <code>-j</code> with RethinkDB; if that happens, just run <code>make</code> without the <code>-j</code> option.</p>
+<p>You’ll find the <code>rethinkdb</code> binary in the <code>build/release/</code> subfolder.</p>
+
     </div>
+      
+
 
     
     
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://vannghia17.github.io/post/hello-world-20190803/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nghia. Nguyen Van">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/eren.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="nvn">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/post/hello-world-20190803/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-03 16:05:36" itemprop="dateCreated datePublished" datetime="2019-08-03T16:05:36+07:00">2019-08-03</time>
-            </span>
           
-
-          <br>
-
+        
+        <div class="post-tags">
+            <a href="/tags/database/" rel="tag"><i class="fa fa-tag"></i> database</a>
+          
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/post/hello-world-20190803/" rel="contents">
-                Read more &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/post/hello-world-20190803/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
+            
+          </div>
 
-    
-    
-    
+          <span class="post-nav-divider"></span>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
     </footer>
   </div>
   
@@ -375,14 +321,12 @@
   
   </article>
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
 
         </div>
           
@@ -397,8 +341,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -476,6 +429,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Building-from-source"><span class="nav-number">1.</span> <span class="nav-text">Building from source</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-the-build-dependencies"><span class="nav-number">1.1.</span> <span class="nav-text">Get the build dependencies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-the-source-code"><span class="nav-number">1.2.</span> <span class="nav-text">Get the source code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-the-server"><span class="nav-number">1.3.</span> <span class="nav-text">Build the server</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Building-from-git"><span class="nav-number">2.</span> <span class="nav-text">Building from git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-the-build-dependencies-1"><span class="nav-number">2.1.</span> <span class="nav-text">Get the build dependencies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-the-source-code-1"><span class="nav-number">2.2.</span> <span class="nav-text">Get the source code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-RethinkDB"><span class="nav-number">2.3.</span> <span class="nav-text">Build RethinkDB</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -528,6 +498,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 
   <script src="/js/next-boot.js?v=7.3.0"></script>
 
